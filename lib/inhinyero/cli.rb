@@ -18,15 +18,18 @@ module Inhinyero
     end
     map %w(--version -v) => :version
 
-    desc 'nuke', 'Command description...'
+    desc 'nuke [DIR]', 'Command description...'
     method_option :help, aliases: '-h', type: :boolean,
                          desc: 'Display usage information'
-    def nuke(*)
+    def nuke(dir = nil)
       if options[:help]
         invoke :help, ['nuke']
       else
         require_relative 'commands/nuke'
-        Inhinyero::Commands::Nuke.new(options).execute
+        if dir == nil
+          dir = "."
+        end
+        Inhinyero::Commands::Nuke.new(dir, options).execute
       end
     end
   end

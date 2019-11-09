@@ -5,12 +5,13 @@ require_relative '../command'
 module Inhinyero
   module Commands
     class Nuke < Inhinyero::Command
-      def initialize(options)
+      def initialize(dir, options)
+        @dir = dir
         @options = options
       end
 
       def execute(input: $stdin, output: $stdout)
-        # Command logic goes here ...
+        Dir.each_child("#{@dir}") {|x| puts "#{x}" }
         output.puts "OK"
       end
     end

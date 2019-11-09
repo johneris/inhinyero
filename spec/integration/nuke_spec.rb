@@ -3,7 +3,7 @@ RSpec.describe "`inhinyero nuke` command", type: :cli do
     output = `inhinyero help nuke`
     expected_output = <<-OUT
 Usage:
-  inhinyero nuke
+  inhinyero nuke [DIR]
 
 Options:
   -h, [--help], [--no-help]  # Display usage information
