@@ -17,5 +17,17 @@ module Inhinyero
       puts "v#{Inhinyero::VERSION}"
     end
     map %w(--version -v) => :version
+
+    desc 'nuke', 'Command description...'
+    method_option :help, aliases: '-h', type: :boolean,
+                         desc: 'Display usage information'
+    def nuke(*)
+      if options[:help]
+        invoke :help, ['nuke']
+      else
+        require_relative 'commands/nuke'
+        Inhinyero::Commands::Nuke.new(options).execute
+      end
+    end
   end
 end
