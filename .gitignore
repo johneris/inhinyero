@@ -60,3 +60,5 @@ vendor/bundle
 /spec/reports/
 /tmp/
 .rspec_status
+
+.idea/**
